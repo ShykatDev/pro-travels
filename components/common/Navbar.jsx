@@ -15,7 +15,7 @@ const Navbar = () => {
     <nav className="w-full bg-neutral-950 bg-opacity-50 backdrop-blur-md h-20 flex items-center border-b border-neutral-800 fixed top-0 left-0">
       <div className="container flex justify-between items-center">
         <Link href="/" className="logo flex items-center">
-          <span className="text-2xl font-bold text-brand">PR</span>
+          <span className="text-2xl font-bold text-blue-600">PR</span>
           <Image
             src={airplane}
             alt="airplane"
@@ -26,7 +26,7 @@ const Navbar = () => {
           <span className="text-2xl font-light text-white">Travels</span>
         </Link>
 
-        <div className="menu flex items-center gap-3">
+        <div className="menu flex items-center">
           {routes.map((route, index) => {
             return (
               <Button key={index} variant="link">
@@ -42,14 +42,16 @@ const Navbar = () => {
             );
           })}
 
-          <Button>
-            <Link href="/">Book Now</Link>
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button>
+              <Link href="/">Book Now</Link>
+            </Button>
 
-          <Button className="flex items-center gap-2" variant="ghost">
-            <RiAccountPinBoxFill />
-            <p>Login</p>
-          </Button>
+            <Button className="flex items-center gap-2" variant="ghost">
+              <RiAccountPinBoxFill />
+              <p>Login</p>
+            </Button>
+          </div>
         </div>
       </div>
     </nav>
