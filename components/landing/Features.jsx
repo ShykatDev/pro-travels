@@ -3,24 +3,16 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { FaStar } from "react-icons/fa6";
 import Gradient from "../common/Gradient";
+import SectionTitle from "../common/SectionTitle";
 
 const Features = () => {
   return (
     <div className="py-20 relative">
       <Gradient positionX="-left-96" positionY="-top-96" color="bg-[#01B3FF]" />
-      <div className="flex items-center justify-center gap-1">
-        <h2 className="text-xl">Discover the exciting features only with us</h2>
-        <Image
-          src={luggage}
-          alt="luggage"
-          width={30}
-          height={30}
-          className="-rotate-[20deg] -mt-2"
-        />
-      </div>
-      <p className="text-neutral-500 text-center">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, sequi.
-      </p>
+      <SectionTitle
+        title="Discover the exciting features only with us"
+        desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, sequi."
+      />
 
       <div className="px-20 mt-16 h-[60vh] flex justify-between items-end">
         <div className="w-[60%] h-full flex items-end">
@@ -43,7 +35,7 @@ const Features = () => {
                 networks
               </p>
             </div>
-            <Button className=" bg-black text-white hover:text-black">
+            <Button className=" bg-black text-white dark:hover:text-black">
               View plans
             </Button>
           </div>
