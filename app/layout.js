@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/common/Navbar";
-
+import { ThemeProvider } from "@/components/common/ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -11,10 +11,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <Navbar />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <div className="my-20">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );

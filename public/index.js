@@ -1,6 +1,9 @@
+//------icons
 export { default as airplane } from "./icons/airplane.png";
-// export { default as headerBanner } from "./assets/banner.png";
-// export { default as rome } from "./assets/rome.jpeg";
-// export { default as balli } from "./assets/balli.jpg";
-// export { default as kashmir } from "./assets/kashmir.webp";
-// export { default as switch } from "./assets/switch.jpeg";
+export { default as luggage } from "./icons/luggage.png";
+export { default as google } from "./icons/google.png";
+
+//-----assets
+export { default as header1 } from "./assets/headerLeft.png";
+export { default as header2 } from "./assets/headerRight1.png";
+export { default as header3 } from "./assets/headerRight2.png";

@@ -1,10 +1,11 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import Features from "@/components/landing/Features";
+import Header from "@/components/landing/Header";
 
-export default function Home() {
+export default function page() {
   return (
-    <>
-      <Button>ShadCN</Button>
-    </>
+    <div className="container">
+      <Header />
+      <Features />
+    </div>
   );
 }

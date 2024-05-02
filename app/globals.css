@@ -77,6 +77,6 @@
 
 @layer components {
   .activeLink {
-    @apply text-blue-600 font-bold underline;
+    @apply text-brandText font-bold text-base;
   }
 }
