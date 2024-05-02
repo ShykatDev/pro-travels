@@ -5,7 +5,9 @@ import Link from "next/link";
 const Logo = () => {
   return (
     <Link href="/" className="logo flex items-center">
-      <span className="text-2xl font-bold text-brandText">PR</span>
+      <span className="text-2xl font-bold text-brand dark:text-brandText">
+        PR
+      </span>
       <Image
         src={airplane}
         alt="airplane"
