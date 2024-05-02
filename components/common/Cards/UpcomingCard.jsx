@@ -71,7 +71,7 @@ const UpcomingCard = () => {
             </p>
           </div>
 
-          <Button className="w-full bg-brandText dark:bg-brand text-white hover:text-black">
+          <Button className="w-full bg-brandText dark:bg-brand text-white hover:bg-white hover:text-black">
             Book Now
           </Button>
         </div>

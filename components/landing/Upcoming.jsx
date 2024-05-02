@@ -4,6 +4,7 @@ import UpcomingCard from "../common/Cards/UpcomingCard";
 import Slider from "react-slick";
 import { SampleNextArrow, SamplePrevArrow } from "@/utils/slider";
 import { Button } from "../ui/button";
+import Gradient from "../common/Gradient";
 
 const Upcoming = () => {
   const settings = {
@@ -20,7 +21,12 @@ const Upcoming = () => {
     ),
   };
   return (
-    <div>
+    <div className="relative">
+      <Gradient
+        positionX="-right-96"
+        positionY="-bottom-96"
+        color="bg-[#01B3FF]"
+      />
       <SectionTitle
         title="Upcoming Tours/Plans"
         desc="Lorem ipsum dolor sit, amet consectetur adipisicing."

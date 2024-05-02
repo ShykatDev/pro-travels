@@ -42,8 +42,8 @@ const Header = () => {
             <Image alt="headerleft" src={header3} className="" />
 
             <div>
-              <div className="size-32 dark:bg-brand bg-brandText dark:bg-opacity-15 border border-brand p-5 rounded-lg">
-                <p className="text-4xl text-neutral-100">50+</p>
+              <div className="size-32 dark:bg-brand bg-brandText bg-opacity-30 dark:bg-opacity-15 border border-brand p-5 rounded-lg">
+                <p className="text-4xl dark:text-neutral-100">50+</p>
               </div>
               <p className="my-6 font-light text-neutral-500">
                 We Have more than 50+ packages where you can pick and enjoy your
