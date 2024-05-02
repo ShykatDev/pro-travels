@@ -1,6 +1,7 @@
 import Features from "@/components/landing/Features";
 import Header from "@/components/landing/Header";
 import Offer from "@/components/landing/Offer";
+import Recommendation from "@/components/landing/Recommendation";
 import Upcoming from "@/components/landing/Upcoming";
 
 export default function page() {
@@ -10,6 +11,7 @@ export default function page() {
       <Features />
       <Upcoming />
       <Offer />
+      <Recommendation />
     </div>
   );
 }

@@ -9,3 +9,8 @@ export { default as header2 } from "./assets/headerRight1.png";
 export { default as header3 } from "./assets/headerRight2.png";
 export { default as card } from "./assets/card.png";
 export { default as offer } from "./assets/cloud.png";
+export { default as japan } from "./assets/japan.jpg";
+export { default as india } from "./assets/india.jpg";
+export { default as nepal } from "./assets/nepal.jpg";
+export { default as iceland } from "./assets/iceland.jpg";
+export { default as thailand } from "./assets/thailand.jpg";
