@@ -53,7 +53,7 @@ const Navbar = () => {
           })}
 
           <Button className="mx-6">
-            <Link href="/">Sign in</Link>
+            <Link href="/sign-in">Sign in</Link>
           </Button>
 
           <ThemeModeToggle />

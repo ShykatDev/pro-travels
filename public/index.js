@@ -15,3 +15,5 @@ export { default as india } from "./assets/india.jpg";
 export { default as nepal } from "./assets/nepal.jpg";
 export { default as iceland } from "./assets/iceland.jpg";
 export { default as thailand } from "./assets/thailand.jpg";
+export { default as sylhet } from "./assets/sylhet.jpg";
+export { default as register } from "./assets/register.jpg";
