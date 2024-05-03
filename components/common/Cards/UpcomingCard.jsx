@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { card } from "@/public";
 import Image from "next/image";
+import Link from "next/link";
 import {
   FaStar,
   FaPlane,
@@ -9,12 +10,18 @@ import {
   FaRegHeart,
 } from "react-icons/fa6";
 
-const UpcomingCard = ({ margin = "" }) => {
+const UpcomingCard = ({ margin = "", pack }) => {
   return (
     <div className={margin}>
       <div className="w-full overflow-hidden rounded-xl dark:bg-brand bg-neutral-400 bg-opacity-5 dark:bg-opacity-15 border dark:border-brand">
         <div className="relative">
-          <Image src={card} alt="card" className="w-full" />
+          <Image
+            src={pack?.thumbnail}
+            width={500}
+            height={500}
+            alt="card"
+            className="w-full"
+          />
 
           <div className="size-10 border dark:border-neutral-500 rounded-full dark:bg-black bg-opacity-50 absolute top-4 right-4 backdrop-blur flex justify-center items-center">
             <button>
@@ -24,10 +31,12 @@ const UpcomingCard = ({ margin = "" }) => {
         </div>
         <div className="w-full p-6">
           <div className="flex items-center justify-between">
-            <h2 className="text-xl">Bali, Thailand</h2>
+            <Link href={`/packages/${pack?.id}`} className="text-xl">
+              {pack?.placeName}
+            </Link>
             <div className="flex items-center gap-1 px-4 py-1.5 rounded-md bg-yellow-400 bg-opacity-25">
               <FaStar className="text-sm text-yellow-500 mb-1" />
-              <p className="text-sm">4.6</p>
+              <p className="text-sm">{pack?.ratings}</p>
             </div>
           </div>
 
@@ -40,14 +49,12 @@ const UpcomingCard = ({ margin = "" }) => {
           </div>
 
           <div className="flex justify-between text-neutral-500 dark:text-neutral-400">
-            <small>Bangladesh</small>
-            <small>Indonesia</small>
+            <small>{pack?.from}</small>
+            <small>{pack?.to}</small>
           </div>
 
           <p className="line-clamp-2 text-neutral-500 dark:text-neutral-400 text-sm mt-4">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis
-            doloremque nostrum neque dolorum obcaecati suscipit facere inventore
-            quos dolores ipsam!
+            {pack?.description}
           </p>
 
           <div className="mt-3">
@@ -55,19 +62,19 @@ const UpcomingCard = ({ margin = "" }) => {
               <div className="flex gap-1 items-center px-3 py-1.5 dark:bg-white bg-black bg-opacity-10 dark:bg-opacity-10 rounded-md">
                 <FaPersonWalkingLuggage className="text-neutral-500 dark:text-neutral-400" />
                 <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                  10 person
+                  {pack?.totalPerson} person
                 </p>
               </div>
               <div className="flex gap-1 items-center px-3 py-1.5 dark:bg-white bg-black bg-opacity-10 dark:bg-opacity-10 rounded-md">
                 <FaClock className="text-neutral-500 dark:text-neutral-400" />
                 <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                  5 days/6 nights
+                  {pack?.totalDuration}
                 </p>
               </div>
             </div>
 
             <p className="text-xl text-brandText font-medium my-3">
-              $ 1000/person
+              $ {pack?.price}/person
             </p>
           </div>
 

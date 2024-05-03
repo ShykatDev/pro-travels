@@ -1,10 +1,19 @@
+"use client";
+
 import PackageCard from "../common/Cards/PackageCard";
 import SectionTitle from "../common/SectionTitle";
 import { FaFilter } from "react-icons/fa6";
-import { Checkbox } from "../ui/checkbox";
 import FilterOption from "./FilterOption";
+import { useQuery } from "@tanstack/react-query";
+import { handleFetchAllPackages } from "@/utils";
 
 const Packages = () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["packages"],
+    queryFn: handleFetchAllPackages,
+    staleTime: 10000,
+  });
+
   return (
     <div className="py-10">
       <SectionTitle
@@ -22,6 +31,11 @@ const Packages = () => {
             <li>
               <FilterOption label="All packages" reg="all" />
             </li>
+
+            <li>
+              <FilterOption label="Upcomming" reg="upcomming" />
+            </li>
+
             <li>
               <FilterOption label="Featured" reg="featured" />
             </li>
@@ -36,26 +50,29 @@ const Packages = () => {
             </li>
           </ul>
         </div>
-        <div className="w-4/5">
-          <div className="flex items-center gap-2 mb-6 hidden">
-            <p className="px-3 py-1.5 bg-brandText text-sm dark:bg-opacity-10 bg-opacity-10 rounded-md">
-              Filter Applied:
-            </p>
-            <p className="px-3 py-1.5 bg-brandText text-sm dark:bg-opacity-10 bg-opacity-10 rounded-md">
-              All Packages
-            </p>
-            <p className="px-3 py-1.5 bg-brandText text-sm dark:bg-opacity-10 bg-opacity-10 rounded-md">
-              Featured
-            </p>
+
+        {isLoading ? (
+          <div className="w-4/5">Loading...</div>
+        ) : (
+          <div className="w-4/5">
+            <div className="flex items-center gap-2 mb-6 hidden">
+              <p className="px-3 py-1.5 bg-brandText text-sm dark:bg-opacity-10 bg-opacity-10 rounded-md">
+                Filter Applied:
+              </p>
+              <p className="px-3 py-1.5 bg-brandText text-sm dark:bg-opacity-10 bg-opacity-10 rounded-md">
+                All Packages
+              </p>
+              <p className="px-3 py-1.5 bg-brandText text-sm dark:bg-opacity-10 bg-opacity-10 rounded-md">
+                Featured
+              </p>
+            </div>
+            <div className="w-full grid grid-cols-3 gap-4">
+              {data.map((d) => {
+                return <PackageCard key={d.id} pack={d} />;
+              })}
+            </div>
           </div>
-          <div className="w-full grid grid-cols-3 gap-4">
-            <PackageCard />
-            <PackageCard />
-            <PackageCard />
-            <PackageCard />
-            <PackageCard />
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

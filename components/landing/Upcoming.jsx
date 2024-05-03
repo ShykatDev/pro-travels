@@ -5,8 +5,18 @@ import Slider from "react-slick";
 import { SampleNextArrow, SamplePrevArrow } from "@/utils/slider";
 import { Button } from "../ui/button";
 import Gradient from "../common/Gradient";
+import { useQuery } from "@tanstack/react-query";
+import { handleFetchUpcomming } from "@/utils";
 
 const Upcoming = () => {
+  const { data: upcomming, isLoading } = useQuery({
+    queryKey: ["upcommingData"],
+    queryFn: handleFetchUpcomming,
+    staleTime: 10000,
+  });
+
+  console.log(upcomming);
+
   const settings = {
     dots: false,
     infinite: true,
@@ -39,14 +49,28 @@ const Upcoming = () => {
         </div>
 
         <div className="mt-6 slider-container">
-          <Slider {...settings}>
-            <UpcomingCard margin="mx-2" />
-            <UpcomingCard margin="mx-2" />
-            <UpcomingCard margin="mx-2" />
-            <UpcomingCard margin="mx-2" />
-            <UpcomingCard margin="mx-2" />
-            <UpcomingCard margin="mx-2" />
-          </Slider>
+          {/* <Slider {...settings} className="">
+            {isLoading ? (
+              <div>Loading...</div>
+            ) : (
+              <>
+                {
+                  // console.log(upcomming.length)
+                  upcomming.map((d) => "hey")
+                }
+              </>
+            )}
+          </Slider> */}
+
+          {isLoading ? (
+            "LoaDING..."
+          ) : (
+            <Slider {...settings}>
+              {upcomming.map((d) => (
+                <UpcomingCard key={d.id} pack={d} margin="mx-2" />
+              ))}
+            </Slider>
+          )}
         </div>
       </div>
     </div>

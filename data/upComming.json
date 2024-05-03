@@ -1,0 +1,72 @@
+[
+  {
+    "id": "d197d3a5-7d35-493d-bd45-1094ab8e16fd",
+    "placeName": "Grand Canyon",
+    "description": "Experience the awe-inspiring beauty of the Grand Canyon, carved by the Colorado River over millions of years.",
+    "from": "Las Vegas",
+    "to": "Grand Canyon Village",
+    "totalPerson": 2,
+    "totalDuration": "2 days",
+    "ratings": 4.8,
+    "isUpcomming": true,
+    "isFav": false,
+    "price": 500,
+    "thumbnail": "/assets/village.jpg"
+  },
+  {
+    "id": "2e47a5bb-3ef0-4b1b-97cb-d47068ac06eb",
+    "placeName": "Santorini",
+    "description": "Discover the stunning sunsets and picturesque villages of this Greek island paradise.",
+    "from": "Athens",
+    "to": "Santorini",
+    "totalPerson": 2,
+    "totalDuration": "3 days",
+    "ratings": 4.7,
+    "isUpcomming": true,
+    "isFav": false,
+    "price": 700,
+    "thumbnail": "/assets/place/Santorini.jpg"
+  },
+  {
+    "id": "a1b02cd3-9c63-4040-b511-86bc7b6c6b62",
+    "placeName": "Paris",
+    "description": "Fall in love with the City of Light, with its iconic landmarks, world-class museums, and romantic ambiance.",
+    "from": "Charles de Gaulle Airport",
+    "to": "Paris",
+    "totalPerson": 2,
+    "totalDuration": "3 days",
+    "ratings": 4.7,
+    "isUpcomming": true,
+    "isFav": false,
+    "price": 750,
+    "thumbnail": "/assets/place/paris.jpg"
+  },
+  {
+    "id": "0e7a40d5-f891-4695-9b64-d7df26b2b3f2",
+    "placeName": "Kyoto",
+    "description": "Experience the beauty and tranquility of Kyoto, with its historic temples, traditional tea houses, and stunning gardens.",
+    "from": "Kansai International Airport",
+    "to": "Kyoto",
+    "totalPerson": 2,
+    "totalDuration": "3 days",
+    "ratings": 4.9,
+    "isUpcomming": true,
+    "isFav": false,
+    "price": 900,
+    "thumbnail": "/assets/place/japan.jpg"
+  },
+  {
+    "id": "36d70d8b-d9f9-478e-94ee-c465de0f84a9",
+    "placeName": "Prague",
+    "description": "Discover the fairy-tale charm of Prague, with its medieval architecture, romantic cobblestone streets, and lively beer gardens.",
+    "from": "Václav Havel Airport Prague",
+    "to": "Prague",
+    "totalPerson": 1,
+    "totalDuration": "4 days",
+    "ratings": 4.8,
+    "isUpcomming": true,
+    "isFav": false,
+    "price": 1000,
+    "thumbnail": "/assets/place/tokyo.jpg"
+  }
+]

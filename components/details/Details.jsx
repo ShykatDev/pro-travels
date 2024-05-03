@@ -9,16 +9,16 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import { india } from "@/public";
 
-const Details = () => {
+const Details = ({ pack }) => {
   return (
     <>
       <div className="flex justify-between items-center gap-10">
         <div className="w-1/2 ">
           <Image
-            src={india}
+            src={pack?.thumbnail}
             alt="india"
-            width="auto"
-            height="auto"
+            width={600}
+            height={500}
             className="w-full h-full object-cover rounded-xl"
           />
         </div>
@@ -30,13 +30,13 @@ const Details = () => {
           </div>
 
           <p className="my-3 text-2xl font-medium text-brandText">
-            $1000/person
+            ${pack?.price}/person
           </p>
           <div className="flex items-center justify-between">
-            <h2 className="text-xl">Bali, Thailand</h2>
+            <h2 className="text-xl">{pack?.placeName}</h2>
             <div className="flex items-center gap-1 px-4 py-1.5 rounded-md bg-yellow-400 bg-opacity-25">
               <FaStar className="text-sm text-yellow-500 mb-1" />
-              <p className="text-sm">4.6</p>
+              <p className="text-sm">{pack?.ratings}</p>
             </div>
           </div>
 
@@ -49,31 +49,25 @@ const Details = () => {
           </div>
 
           <div className="flex justify-between text-neutral-500 dark:text-neutral-300">
-            <small>Bangladesh</small>
-            <small>Indonesia</small>
+            <small>{pack?.from}</small>
+            <small>{pack?.to}</small>
           </div>
 
           <p className="mt-3 text-neutral-600 dark:text-neutral-300 line-clamp-4">
-            Select your favorite social network and share our icons with your
-            contacts or friends. If you don’t have these social networks, Select
-            your favorite social network and share our icons with your contacts
-            or friends. If you don’t have these social networks, Select your
-            favorite social network and share our icons with your contacts or
-            friends. If you don’t have these social networks, Select your
-            favorite social network and share our icons with your.
+            {pack?.description}
           </p>
 
           <div className="my-6 flex gap-3">
             <div className="flex gap-1 items-center px-3 py-1.5 dark:bg-white bg-black bg-opacity-10 dark:bg-opacity-10 rounded-md">
               <FaPersonWalkingLuggage className="text-neutral-600 dark:text-neutral-300" />
               <p className="text-sm text-neutral-600 dark:text-neutral-300">
-                10 person
+                {pack?.totalPerson} person
               </p>
             </div>
             <div className="flex gap-1 items-center px-3 py-1.5 dark:bg-white bg-black bg-opacity-10 dark:bg-opacity-10 rounded-md">
               <FaClock className="text-neutral-600 dark:text-neutral-300" />
               <p className="text-sm text-neutral-600 dark:text-neutral-300">
-                5 days/6 nights
+                {pack?.totalDuration}
               </p>
             </div>
           </div>

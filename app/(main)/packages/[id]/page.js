@@ -1,9 +1,9 @@
 import PackageDetails from "@/components/details/PackageDetails";
 
-const page = () => {
+const page = ({ params }) => {
   return (
     <div>
-      <PackageDetails />
+      <PackageDetails params={params} />
     </div>
   );
 };
