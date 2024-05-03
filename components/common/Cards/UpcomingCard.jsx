@@ -9,14 +9,14 @@ import {
   FaRegHeart,
 } from "react-icons/fa6";
 
-const UpcomingCard = () => {
+const UpcomingCard = ({ margin = "" }) => {
   return (
-    <div className="mx-2">
+    <div className={margin}>
       <div className="w-full overflow-hidden rounded-xl dark:bg-brand bg-neutral-400 bg-opacity-5 dark:bg-opacity-15 border dark:border-brand">
         <div className="relative">
           <Image src={card} alt="card" className="w-full" />
 
-          <div className="size-10 border border-neutral-500 rounded-full bg-black bg-opacity-50 absolute top-4 right-4 backdrop-blur flex justify-center items-center">
+          <div className="size-10 border dark:border-neutral-500 rounded-full dark:bg-black bg-opacity-50 absolute top-4 right-4 backdrop-blur flex justify-center items-center">
             <button>
               <FaRegHeart className="text-xl text-rose-600" />
             </button>

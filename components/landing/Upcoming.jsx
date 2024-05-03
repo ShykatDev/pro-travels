@@ -40,12 +40,12 @@ const Upcoming = () => {
 
         <div className="mt-6 slider-container">
           <Slider {...settings}>
-            <UpcomingCard />
-            <UpcomingCard />
-            <UpcomingCard />
-            <UpcomingCard />
-            <UpcomingCard />
-            <UpcomingCard />
+            <UpcomingCard margin="mx-2" />
+            <UpcomingCard margin="mx-2" />
+            <UpcomingCard margin="mx-2" />
+            <UpcomingCard margin="mx-2" />
+            <UpcomingCard margin="mx-2" />
+            <UpcomingCard margin="mx-2" />
           </Slider>
         </div>
       </div>
