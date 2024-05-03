@@ -6,7 +6,7 @@ const Offer = () => {
   return (
     <div className="w-full dark:bg-transparent border bg-white bg-opacity-5 min-h-80 rounded-xl my-20 flex justify-between items-center px-10">
       <div className="flex flex-col items-start">
-        <p className="px-3 py-1 border border-red-400 text-red-400 rounded-lg">
+        <p className="px-3 py-1 border border-rose-400 text-rose-400 rounded-lg">
           Save 25% on your first trip
         </p>
 

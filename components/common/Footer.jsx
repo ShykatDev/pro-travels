@@ -33,9 +33,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t pt-10 flex justify-between items-center">
-          <Link href="/">
-            <Logo />
-          </Link>
+          <Logo />
 
           <div className="flex items-center gap-2">
             <Link href="/" className=" dark:text-neutral-300">

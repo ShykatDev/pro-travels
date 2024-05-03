@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { header1, header2, header3, luggage } from "@/public";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -59,9 +58,9 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div class="mt-10 flex items-center justify-center">
-        <div class="h-36 w-full rounded-xl bg-gradient-to-b from-neutral-200 dark:from-neutral-800 to-transparent p-[1px] overflow-hidden">
-          <div class=" h-full w-full bg-white dark:bg-neutral-950 rounded-xl grid grid-cols-4 gap-6 items-center px-10">
+      <div className="mt-10 flex items-center justify-center">
+        <div className="h-36 w-full rounded-xl bg-gradient-to-b from-neutral-200 dark:from-neutral-800 to-transparent p-[1px] overflow-hidden">
+          <div className=" h-full w-full bg-white dark:bg-neutral-950 rounded-xl grid grid-cols-4 gap-6 items-center px-10">
             <Select className="w-full outline-none">
               <SelectTrigger className="w-full text-neutral-400 ">
                 <SelectValue placeholder="Location" />
