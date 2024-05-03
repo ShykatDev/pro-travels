@@ -1,5 +1,11 @@
+import PackageDetails from "@/components/details/PackageDetails";
+
 const page = () => {
-  return <div>page</div>;
+  return (
+    <div>
+      <PackageDetails />
+    </div>
+  );
 };
 
 export default page;

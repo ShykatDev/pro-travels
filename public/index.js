@@ -2,6 +2,7 @@
 export { default as airplane } from "./icons/airplane.png";
 export { default as luggage } from "./icons/luggage.png";
 export { default as google } from "./icons/google.png";
+export { default as user } from "./icons/user.png";
 
 //-----assets
 export { default as header1 } from "./assets/headerLeft.png";
