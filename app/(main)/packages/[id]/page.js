@@ -1,11 +1,7 @@
 import PackageDetails from "@/components/details/PackageDetails";
 
 const page = ({ params }) => {
-  return (
-    <div>
-      <PackageDetails params={params} />
-    </div>
-  );
+  return <PackageDetails params={params} />;
 };
 
 export default page;

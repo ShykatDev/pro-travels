@@ -29,11 +29,13 @@ const Details = ({ pack }) => {
             </button>
           </div>
 
-          <p className="my-3 text-2xl font-medium text-brandText">
+          <p className="my-3 text-2xl font-medium dark:text-brandText text-white">
             ${pack?.price}/person
           </p>
           <div className="flex items-center justify-between">
-            <h2 className="text-xl">{pack?.placeName}</h2>
+            <h2 className="text-xl text-neutral-200 dark:text-white">
+              {pack?.placeName}
+            </h2>
             <div className="flex items-center gap-1 px-4 py-1.5 rounded-md bg-yellow-400 bg-opacity-25">
               <FaStar className="text-sm text-yellow-500 mb-1" />
               <p className="text-sm">{pack?.ratings}</p>
@@ -41,32 +43,32 @@ const Details = ({ pack }) => {
           </div>
 
           <div className="mt-3 flex items-center">
-            <div className="size-2 rounded-full bg-neutral-500"></div>
-            <div className="w-1/2 h-[1px] bg-neutral-500"></div>
-            <FaPlane className="text-neutral-500 dark:text-neutral-300" />
-            <div className="w-1/2 h-[1px] bg-neutral-500"></div>
-            <div className="size-2 rounded-full bg-brandText"></div>
+            <div className="size-2 rounded-full dark:bg-neutral-500 bg-neutral-300"></div>
+            <div className="w-1/2 h-[1px] dark:bg-neutral-500 bg-neutral-300"></div>
+            <FaPlane className="text-neutral-300 dark:text-neutral-300" />
+            <div className="w-1/2 h-[1px] dark:bg-neutral-500 bg-neutral-300"></div>
+            <div className="size-2 rounded-full dark:bg-brandText bg-sky-400"></div>
           </div>
 
-          <div className="flex justify-between text-neutral-500 dark:text-neutral-300">
+          <div className="flex justify-between text-neutral-300 dark:text-neutral-300">
             <small>{pack?.from}</small>
             <small>{pack?.to}</small>
           </div>
 
-          <p className="mt-3 text-neutral-600 dark:text-neutral-300 line-clamp-4">
+          <p className="mt-3 text-neutral-300 dark:text-neutral-300 line-clamp-4">
             {pack?.description}
           </p>
 
           <div className="my-6 flex gap-3">
             <div className="flex gap-1 items-center px-3 py-1.5 dark:bg-white bg-black bg-opacity-10 dark:bg-opacity-10 rounded-md">
-              <FaPersonWalkingLuggage className="text-neutral-600 dark:text-neutral-300" />
-              <p className="text-sm text-neutral-600 dark:text-neutral-300">
+              <FaPersonWalkingLuggage className="text-neutral-300 dark:text-neutral-300" />
+              <p className="text-sm text-neutral-300 dark:text-neutral-300">
                 {pack?.totalPerson} person
               </p>
             </div>
             <div className="flex gap-1 items-center px-3 py-1.5 dark:bg-white bg-black bg-opacity-10 dark:bg-opacity-10 rounded-md">
-              <FaClock className="text-neutral-600 dark:text-neutral-300" />
-              <p className="text-sm text-neutral-600 dark:text-neutral-300">
+              <FaClock className="text-neutral-300 dark:text-neutral-300" />
+              <p className="text-sm text-neutral-300 dark:text-neutral-300">
                 {pack?.totalDuration}
               </p>
             </div>

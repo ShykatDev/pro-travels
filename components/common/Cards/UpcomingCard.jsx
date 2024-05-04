@@ -78,7 +78,7 @@ const UpcomingCard = ({ margin = "", pack }) => {
             </p>
           </div>
 
-          <Button className="w-full bg-brandText dark:bg-brand text-white hover:bg-white hover:text-black">
+          <Button className="w-full bg-brandText dark:bg-brand text-white hover:bg-white hover:text-black dark:hover:bg-brandText">
             Book Now
           </Button>
         </div>
