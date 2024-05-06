@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const SIgnin = () => {
   return (
-    <div className="container py-20 flex justify-between h-screen">
+    <div className="container pt-10 pb-20 flex justify-between min-h-[90vh]">
       <div className="w-2/5 flex flex-col justify-between items-start">
         <Logo />
         <div className="w-full">

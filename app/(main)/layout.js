@@ -4,6 +4,7 @@ import Navbar from "@/components/common/Navbar";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
 import Footer from "@/components/common/Footer";
 import QueryProvider from "@/utils/QueryProvider";
+import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -29,8 +30,10 @@ export default function RootLayout({ children }) {
               <div id="modal-root"></div>
             </QueryProvider>
           </div>
+
           <Footer />
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );
