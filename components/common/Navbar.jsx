@@ -12,10 +12,21 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
   const pathName = usePathname();
+  const [signInData, setSignInData] = useState({});
+
+  useEffect(() => {
+    if (window !== undefined) {
+      setSignInData(JSON.parse(localStorage.getItem("signInData")));
+    }
+  }, []);
 
   const handleScroll = () => {
     const isScrolled = window.scrollY > 0;
     setIsScroll(isScrolled);
+  };
+
+  const isObjEmpty = (obj) => {
+    return Object.keys(obj).length === 0;
   };
 
   useEffect(() => {
@@ -52,9 +63,15 @@ const Navbar = () => {
             );
           })}
 
-          <Button className="mx-6">
-            <Link href="/sign-in">Sign in</Link>
-          </Button>
+          {isObjEmpty(signInData) ? (
+            <Button className="mx-6">
+              <Link href="/sign-in">Sign in</Link>
+            </Button>
+          ) : (
+            <Button className="mx-6">
+              <Link href="/profile">{signInData?.name}</Link>
+            </Button>
+          )}
 
           <ThemeModeToggle />
         </div>

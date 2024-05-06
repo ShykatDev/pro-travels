@@ -13,6 +13,8 @@ import { signInSchema } from "@/schemas";
 import { useRouter } from "next/navigation";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const initialValues = {
   email: "",
@@ -21,6 +23,17 @@ const initialValues = {
 
 const SIgnin = () => {
   const router = useRouter();
+  const [regData, setRegData] = useState(null);
+  const [signData, setSignData] = useLocalStorage("signInData", {});
+
+  useEffect(() => {
+    if (window !== undefined) {
+      setRegData(JSON.parse(localStorage.getItem("registerData")));
+    }
+  }, []);
+
+  console.log(regData);
+
   const {
     values,
     setSubmitting,
@@ -35,10 +48,17 @@ const SIgnin = () => {
     onSubmit: (values, { resetForm }) => {
       setTimeout(() => {
         setSubmitting(false);
-        console.log(values);
-        resetForm();
-        toast.success("Sign in Successfully");
-        router.push("/");
+        const findUser = regData.find(
+          (user) =>
+            user.email === values.email && user.password === values.password
+        );
+
+        if (findUser !== undefined) {
+          setSignData(findUser);
+          resetForm();
+          toast.success("Sign in Successfully");
+          router.push("/");
+        }
       }, 2000);
     },
   });

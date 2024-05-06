@@ -14,6 +14,7 @@ import { registerSchema } from "@/schemas";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const initialValues = {
   name: "",
@@ -23,6 +24,7 @@ const initialValues = {
 };
 
 const Register = () => {
+  const [regData, setRegData] = useLocalStorage("registerData", []);
   const router = useRouter();
   const {
     values,
@@ -39,7 +41,7 @@ const Register = () => {
     onSubmit: (values, { resetForm }) => {
       setTimeout(() => {
         setSubmitting(false);
-        console.log(values);
+        setRegData([...regData, values]);
         resetForm();
         toast.success("Register Successfully");
         router.push("/sign-in");
