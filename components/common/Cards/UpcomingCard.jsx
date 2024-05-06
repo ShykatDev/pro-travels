@@ -20,6 +20,7 @@ const UpcomingCard = ({ margin = "", pack }) => {
             width={500}
             height={500}
             alt="card"
+            priority={true}
             className="w-full"
           />
 

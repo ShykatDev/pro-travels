@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa6";
 
 const ReviewCard = () => {
   return (
-    <div className=" w-full dark:bg-white bg-black dark:bg-opacity-10 bg-opacity-5 p-3 flex items-start gap-3 rounded-md">
+    <div className=" w-full dark:bg-white bg-white dark:bg-opacity-10 bg-opacity-20 p-3 flex items-start gap-3 rounded-md">
       <div className="">
         <Image src={user} alt="user" />
       </div>

@@ -12,27 +12,12 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
   const pathName = usePathname();
-  // const [signInData, setSignInData] = useState({});
 
   let localData = JSON.parse(localStorage.getItem("signInData"));
-
-  // useEffect(() => {
-  //   if (window !== undefined) {
-  //     setSignInData(JSON.parse(localStorage.getItem("signInData")));
-  //   }
-  // }, []);
-
-  console.log(localData);
 
   const handleScroll = () => {
     const isScrolled = window.scrollY > 0;
     setIsScroll(isScrolled);
-  };
-
-  const isObjEmpty = (obj) => {
-    if (obj !== null) {
-      return Object.keys(obj).length === 0;
-    }
   };
 
   useEffect(() => {
