@@ -1,6 +1,7 @@
 import { offer } from "@/public";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const Offer = () => {
   return (
@@ -17,7 +18,9 @@ const Offer = () => {
           asperiores.
         </p>
 
-        <Button className="mt-6">Sign in</Button>
+        <Button className="mt-6">
+          <Link href="/sign-in">Sign in</Link>
+        </Button>
       </div>
       <div>
         <Image src={offer} alt="offer" width={500} height={500} />

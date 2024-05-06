@@ -1,9 +1,12 @@
 "use client";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { Button } from "../ui/button";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 const Profile = () => {
   const router = useRouter();
+
   const handleLogout = () => {
     if (window !== undefined) {
       localStorage.removeItem("signInData");

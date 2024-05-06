@@ -54,11 +54,12 @@ const Navbar = () => {
             );
           })}
 
-          {localData === null && (
-            <Button className="mx-6">
-              <Link href="/sign-in">Sign in</Link>
-            </Button>
-          )}
+          {localData === null ||
+            (Object.keys(localData).length === 0 && (
+              <Button className="mx-6">
+                <Link href="/sign-in">Sign in</Link>
+              </Button>
+            ))}
 
           {localData?.name && (
             <Button className="mx-6">
