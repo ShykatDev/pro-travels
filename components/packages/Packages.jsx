@@ -6,6 +6,7 @@ import { FaFilter } from "react-icons/fa6";
 import FilterOption from "./FilterOption";
 import { useQuery } from "@tanstack/react-query";
 import { handleFetchAllPackages } from "@/utils";
+import LoadingCard from "../loading/Card";
 
 const Packages = () => {
   const { data, isLoading } = useQuery({
@@ -52,7 +53,14 @@ const Packages = () => {
         </div>
 
         {isLoading ? (
-          <div className="w-4/5">Loading...</div>
+          <div className="w-4/5 grid grid-cols-3 gap-4">
+            <LoadingCard />
+            <LoadingCard />
+            <LoadingCard />
+            <LoadingCard />
+            <LoadingCard />
+            <LoadingCard />
+          </div>
         ) : (
           <div className="w-4/5">
             <div className="flex items-center gap-2 mb-6 hidden">

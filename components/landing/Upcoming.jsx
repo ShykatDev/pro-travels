@@ -7,6 +7,7 @@ import { Button } from "../ui/button";
 import Gradient from "../common/Gradient";
 import { useQuery } from "@tanstack/react-query";
 import { handleFetchUpcomming } from "@/utils";
+import LoadingCard from "../loading/Card";
 
 const Upcoming = () => {
   const { data: upcomming, isLoading } = useQuery({
@@ -14,8 +15,6 @@ const Upcoming = () => {
     queryFn: handleFetchUpcomming,
     staleTime: 10000,
   });
-
-  console.log(upcomming);
 
   const settings = {
     dots: false,
@@ -49,21 +48,13 @@ const Upcoming = () => {
         </div>
 
         <div className="mt-6 slider-container">
-          {/* <Slider {...settings} className="">
-            {isLoading ? (
-              <div>Loading...</div>
-            ) : (
-              <>
-                {
-                  // console.log(upcomming.length)
-                  upcomming.map((d) => "hey")
-                }
-              </>
-            )}
-          </Slider> */}
-
           {isLoading ? (
-            "LoaDING..."
+            <div className="w-full grid grid-cols-4 gap-2">
+              <LoadingCard />
+              <LoadingCard />
+              <LoadingCard />
+              <LoadingCard />
+            </div>
           ) : (
             <Slider {...settings}>
               {upcomming.map((d) => (

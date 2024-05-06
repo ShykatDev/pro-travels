@@ -3,6 +3,7 @@ import PlaceName from "../common/PlaceName";
 import { Button } from "../ui/button";
 import { FaLocationDot } from "react-icons/fa6";
 import { iceland, india, japan, nepal, thailand, usa } from "@/public";
+import Link from "next/link";
 
 const Recommendation = () => {
   return (
@@ -15,7 +16,9 @@ const Recommendation = () => {
           architecto non distinctio?
         </p>
 
-        <Button>View all plans</Button>
+        <Button>
+          <Link href="/packages">View all plans</Link>
+        </Button>
       </div>
       <div className="border row-span-2 relative rounded-lg overflow-hidden">
         <Image
