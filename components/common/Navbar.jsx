@@ -12,13 +12,17 @@ import { useEffect, useState } from "react";
 const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
   const pathName = usePathname();
-  const [signInData, setSignInData] = useState({});
+  // const [signInData, setSignInData] = useState({});
 
-  useEffect(() => {
-    if (window !== undefined) {
-      setSignInData(JSON.parse(localStorage.getItem("signInData")));
-    }
-  }, []);
+  let localData = JSON.parse(localStorage.getItem("signInData"));
+
+  // useEffect(() => {
+  //   if (window !== undefined) {
+  //     setSignInData(JSON.parse(localStorage.getItem("signInData")));
+  //   }
+  // }, []);
+
+  console.log(localData);
 
   const handleScroll = () => {
     const isScrolled = window.scrollY > 0;
@@ -26,7 +30,9 @@ const Navbar = () => {
   };
 
   const isObjEmpty = (obj) => {
-    return Object.keys(obj).length === 0;
+    if (obj !== null) {
+      return Object.keys(obj).length === 0;
+    }
   };
 
   useEffect(() => {
@@ -63,13 +69,15 @@ const Navbar = () => {
             );
           })}
 
-          {isObjEmpty(signInData) ? (
+          {localData === null && (
             <Button className="mx-6">
               <Link href="/sign-in">Sign in</Link>
             </Button>
-          ) : (
+          )}
+
+          {localData?.name && (
             <Button className="mx-6">
-              <Link href="/profile">{signInData?.name}</Link>
+              <Link href="/profile">{localData?.name}</Link>
             </Button>
           )}
 
