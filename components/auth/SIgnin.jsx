@@ -1,3 +1,5 @@
+"use client";
+
 import { header2, sylhet } from "@/public";
 import Image from "next/image";
 import Logo from "../common/Logo";
@@ -6,8 +8,40 @@ import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { useFormik } from "formik";
+import { signInSchema } from "@/schemas";
+import { useRouter } from "next/navigation";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import toast from "react-hot-toast";
+
+const initialValues = {
+  email: "",
+  password: "",
+};
 
 const SIgnin = () => {
+  const router = useRouter();
+  const {
+    values,
+    setSubmitting,
+    handleChange,
+    handleSubmit,
+    errors,
+    touched,
+    isSubmitting,
+  } = useFormik({
+    initialValues,
+    validationSchema: signInSchema,
+    onSubmit: (values, { resetForm }) => {
+      setTimeout(() => {
+        setSubmitting(false);
+        console.log(values);
+        resetForm();
+        toast.success("Sign in Successfully");
+        router.push("/");
+      }, 2000);
+    },
+  });
   return (
     <div className="container pt-10 pb-20 flex justify-between min-h-[90vh]">
       <div className="w-2/5 flex flex-col justify-between items-start">
@@ -17,7 +51,7 @@ const SIgnin = () => {
           <p className="text-neutral-600 dark:text-neutral-400">
             Enter your original credentials to login
           </p>
-          <form className="w-full mt-10">
+          <form className="w-full mt-10" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-2 mb-4">
               <Label
                 htmlFor="email"
@@ -27,10 +61,16 @@ const SIgnin = () => {
               </Label>
               <Input
                 type="email"
-                id="email"
+                name="email"
+                value={values.email}
+                onChange={handleChange}
                 placeholder="Enter Email"
                 className="w-full"
               />
+
+              {errors.email && touched.email && (
+                <small className="text-rose-500">{errors.email}</small>
+              )}
             </div>
             <div className="flex flex-col gap-2 mb-6">
               <Label
@@ -41,13 +81,28 @@ const SIgnin = () => {
               </Label>
               <Input
                 type="password"
-                id="password"
+                name="password"
+                value={values.password}
+                onChange={handleChange}
                 placeholder="Enter Password"
                 className="w-full"
               />
+
+              {errors.password && touched.password && (
+                <small className="text-rose-500">{errors.password}</small>
+              )}
             </div>
 
-            <Button>Sign in</Button>
+            <Button type="submit">
+              {isSubmitting ? (
+                <div className="flex items-center gap-2">
+                  <AiOutlineLoading3Quarters className="animate-spin" />
+                  <span>Loading</span>
+                </div>
+              ) : (
+                "Sign in"
+              )}
+            </Button>
           </form>
 
           <p className="text-neutral-600 dark:text-neutral-400 mt-6">

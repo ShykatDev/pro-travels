@@ -17,3 +17,14 @@ export const registerSchema = yup.object().shape({
     .oneOf([yup.ref("password")], "Confirm password must be same with password")
     .required("Please enter password again for confirmation "),
 });
+
+export const signInSchema = yup.object().shape({
+  email: yup
+    .string()
+    .email("Please enter your registered email")
+    .required("Please enter your email"),
+  password: yup
+    .string()
+    .matches(passwordRegExp, "Password must 7 characters long")
+    .required("Please enter your password"),
+});
