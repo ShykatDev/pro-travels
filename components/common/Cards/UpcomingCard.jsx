@@ -80,7 +80,7 @@ const UpcomingCard = ({ margin = "", pack }) => {
           </div>
 
           <Button className="w-full bg-brandText dark:bg-brand text-white hover:bg-white hover:text-black dark:hover:bg-brandText">
-            Book Now
+            <Link href={`booking/${pack.id}`}>Book Now</Link>
           </Button>
         </div>
       </div>

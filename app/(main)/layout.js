@@ -22,16 +22,16 @@ export default function RootLayout({ children }) {
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <div className="my-20">
-            <QueryProvider>
+          <QueryProvider>
+            <Navbar />
+            <div className="my-20">
               {children}
 
               <div id="modal-root"></div>
-            </QueryProvider>
-          </div>
+            </div>
 
-          <Footer />
+            <Footer />
+          </QueryProvider>
         </ThemeProvider>
         <Toaster />
       </body>

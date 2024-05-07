@@ -1,14 +1,13 @@
+import Booking from "@/components/booking/Booking";
 import ProtectedRoute from "@/components/common/ProtectedRoutes";
-import Profile from "@/components/profile/Profile";
-import React from "react";
 
 const page = () => {
   return (
-    <>
+    <div className="container">
       <ProtectedRoute>
-        <Profile />
+        <Booking />
       </ProtectedRoute>
-    </>
+    </div>
   );
 };
 

@@ -11,14 +11,17 @@ import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
+  const [signInData, setSignInData] = useState({});
   const pathName = usePathname();
-
-  let localData = JSON.parse(localStorage.getItem("signInData"));
 
   const handleScroll = () => {
     const isScrolled = window.scrollY > 0;
     setIsScroll(isScrolled);
   };
+
+  useEffect(() => {
+    setSignInData(JSON.parse(localStorage.getItem("signInData")));
+  }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -54,16 +57,15 @@ const Navbar = () => {
             );
           })}
 
-          {localData === null ||
-            (Object.keys(localData).length === 0 && (
-              <Button className="mx-6">
-                <Link href="/sign-in">Sign in</Link>
-              </Button>
-            ))}
-
-          {localData?.name && (
+          {Object.keys(signInData).length === 0 && (
             <Button className="mx-6">
-              <Link href="/profile">{localData?.name}</Link>
+              <Link href="/sign-in">Sign in</Link>
+            </Button>
+          )}
+
+          {Object.keys(signInData).length !== 0 && (
+            <Button className="mx-6">
+              <Link href="/profile">{signInData?.name}</Link>
             </Button>
           )}
 
