@@ -5,6 +5,7 @@ import Reviews from "./Reviews";
 import Related from "./Related";
 import { useQuery } from "@tanstack/react-query";
 import { handleFetchAllPackages } from "@/utils";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const PackageDetails = ({ params }) => {
   const { data, isLoading } = useQuery({
@@ -17,7 +18,7 @@ const PackageDetails = ({ params }) => {
 
   return isLoading ? (
     <div className="w-full h-screen container relative flex justify-center items-center">
-      loading...
+      <AiOutlineLoading3Quarters className="animate-spin" /> Loading
     </div>
   ) : (
     <>

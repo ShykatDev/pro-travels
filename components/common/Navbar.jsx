@@ -7,21 +7,18 @@ import { Button } from "../ui/button";
 import Logo from "./Logo";
 import Search from "./Search";
 import { ThemeModeToggle } from "./ThemeModeToggler";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "@/context";
 
 const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
-  const [signInData, setSignInData] = useState({});
+  const { user, setUser } = useContext(AuthContext);
   const pathName = usePathname();
 
   const handleScroll = () => {
     const isScrolled = window.scrollY > 0;
     setIsScroll(isScrolled);
   };
-
-  useEffect(() => {
-    setSignInData(JSON.parse(localStorage.getItem("signInData")));
-  }, []);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -57,15 +54,13 @@ const Navbar = () => {
             );
           })}
 
-          {Object.keys(signInData).length === 0 && (
+          {Object.keys(user).length === 0 ? (
             <Button className="mx-6">
               <Link href="/sign-in">Sign in</Link>
             </Button>
-          )}
-
-          {Object.keys(signInData).length !== 0 && (
+          ) : (
             <Button className="mx-6">
-              <Link href="/profile">{signInData?.name}</Link>
+              <Link href="/profile">{user?.name}</Link>
             </Button>
           )}
 

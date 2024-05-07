@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/common/ThemeProvider";
 import Footer from "@/components/common/Footer";
 import QueryProvider from "@/utils/QueryProvider";
 import { Toaster } from "react-hot-toast";
+import AuthProvider from "@/providers/AuthProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -23,14 +24,16 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <QueryProvider>
-            <Navbar />
-            <div className="my-20">
-              {children}
+            <AuthProvider>
+              <Navbar />
+              <div className="my-20">
+                {children}
 
-              <div id="modal-root"></div>
-            </div>
+                <div id="modal-root"></div>
+              </div>
 
-            <Footer />
+              <Footer />
+            </AuthProvider>
           </QueryProvider>
         </ThemeProvider>
         <Toaster />

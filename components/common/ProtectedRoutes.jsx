@@ -1,23 +1,23 @@
 "use client";
+import { AuthContext } from "@/context";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import toast from "react-hot-toast";
 
 const ProtectedRoute = ({ children }) => {
   const router = useRouter();
+  const { user, _ } = useContext(AuthContext);
 
   useEffect(() => {
-    const isAuthenticated = JSON.parse(localStorage.getItem("signInData"));
-
     const isObjEmpty = (obj) => {
       return Object.keys(obj).length === 0;
     };
 
-    if (isObjEmpty(isAuthenticated)) {
+    if (isObjEmpty(user)) {
       router.push("/sign-in");
       toast.error("Please sign in first!");
     }
-  }, [router]);
+  }, [router, user]);
 
   return children;
 };

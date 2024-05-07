@@ -1,18 +1,18 @@
 "use client";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Button } from "../ui/button";
-import useLocalStorage from "@/hooks/useLocalStorage";
+import { useContext } from "react";
+import { AuthContext } from "@/context";
 
 const Profile = () => {
   const router = useRouter();
-  const [_, setSignData] = useLocalStorage("signInData", {});
+  const { _, setUser } = useContext(AuthContext);
 
   const handleLogout = () => {
-    if (window !== undefined) {
-      setSignData({});
-    }
-
     router.push("/");
+    setTimeout(() => {
+      setUser({});
+    }, 500);
   };
   return (
     <div>
