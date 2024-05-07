@@ -7,7 +7,6 @@ import {
 } from "react-icons/fa6";
 import { Button } from "../ui/button";
 import Image from "next/image";
-import { india } from "@/public";
 
 const Details = ({ pack }) => {
   return (
@@ -16,7 +15,7 @@ const Details = ({ pack }) => {
         <div className="w-1/2 ">
           <Image
             src={pack?.thumbnail}
-            alt="india"
+            alt={pack?.placeName}
             width={600}
             height={500}
             className="w-full h-full object-cover rounded-xl"

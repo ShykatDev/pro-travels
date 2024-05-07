@@ -1,15 +1,15 @@
 "use client";
 import { redirect, useRouter } from "next/navigation";
 import { Button } from "../ui/button";
-import { useEffect } from "react";
-import toast from "react-hot-toast";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const Profile = () => {
   const router = useRouter();
+  const [_, setSignData] = useLocalStorage("signInData", {});
 
   const handleLogout = () => {
     if (window !== undefined) {
-      localStorage.removeItem("signInData");
+      setSignData({});
     }
 
     router.push("/");

@@ -61,8 +61,7 @@ const Register = () => {
           className="w-full h-full object-cover rounded-lg"
         />
       </div>
-      <div className="w-2/5 flex flex-col justify-between items-start">
-        <Logo />
+      <div className="w-2/5 flex flex-col justify-center items-start">
         <div className="w-full">
           <h2 className="text-2xl">Register</h2>
           <p className="text-neutral-600 dark:text-neutral-400">
@@ -171,11 +170,11 @@ const Register = () => {
             here
           </p>
         </div>
-        <div className="flex items-center gap-6 dark:text-neutral-400 text-neutral-600">
+        {/* <div className="flex items-center gap-6 dark:text-neutral-400 text-neutral-600">
           <FaFacebookF />
           <FaInstagram />
           <FaYoutube />
-        </div>
+        </div> */}
       </div>
     </div>
   );

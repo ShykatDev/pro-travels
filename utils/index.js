@@ -15,3 +15,12 @@ export const handleFetchUpcomming = async () => {
     console.error(e);
   }
 };
+
+export const handleFetchRecommended = async () => {
+  try {
+    const res = await fetch("http://localhost:3000/api/recommended");
+    return res.json();
+  } catch (e) {
+    console.error(e);
+  }
+};

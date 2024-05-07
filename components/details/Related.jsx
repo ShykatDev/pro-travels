@@ -5,8 +5,18 @@ import PlaceName from "../common/PlaceName";
 import { SampleNextArrow, SamplePrevArrow } from "@/utils/slider";
 import Slider from "react-slick";
 import { card, india, japan, thailand } from "@/public";
+import { useParams } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
+import { handleFetchAllPackages } from "@/utils";
+import Link from "next/link";
 
 const Related = () => {
+  const { data } = useQuery({
+    queryKey: ["related"],
+    queryFn: handleFetchAllPackages,
+    staleTime: 10000,
+  });
+
   const settings = {
     dots: false,
     infinite: true,
@@ -21,50 +31,37 @@ const Related = () => {
       <SamplePrevArrow place="-bottom-10 right-14 lg:right-14 z-20 cursor-pointer" />
     ),
   };
+
+  const { id } = useParams();
+
+  const relatedData = data?.filter((item) => item.id !== id);
+
   return (
     <div className="w-1/4 h-full">
       <h2 className="text-xl">Related Packages</h2>
 
       <Slider {...settings}>
-        <div className="p-3 bg-brandText rounded-lg mt-3 dark:bg-brand">
-          <div className="relative bg-opacity-30 dark:bg-opacity-30">
-            <Image
-              src={india}
-              alt="india"
-              width="auto"
-              height="auto"
-              className=" rounded-md w-full border-brand h-[25vh] object-cover"
-            />
+        {relatedData?.slice(0, 10)?.map((item) => {
+          return (
+            <Link
+              href={`/packages/${item.id}`}
+              key={item.id}
+              className="p-3 bg-brandText rounded-lg mt-3 dark:bg-brand"
+            >
+              <div className="relative bg-opacity-30 dark:bg-opacity-30">
+                <Image
+                  src={item.thumbnail}
+                  alt={item.placeName}
+                  width={200}
+                  height={200}
+                  className=" rounded-md w-full border-brand h-[25vh] object-cover"
+                />
 
-            <PlaceName place="India" price="$100" />
-          </div>
-        </div>
-        <div className="p-3 bg-brandText rounded-lg mt-3 dark:bg-brand">
-          <div className="relative bg-opacity-30 dark:bg-opacity-30">
-            <Image
-              src={card}
-              alt="india"
-              width="auto"
-              height="auto"
-              className=" rounded-md w-full border-brand h-[25vh] object-cover"
-            />
-
-            <PlaceName place="Japan" price="$100" />
-          </div>
-        </div>
-        <div className="p-3 bg-brandText rounded-lg mt-3 dark:bg-brand">
-          <div className="relative bg-opacity-30 dark:bg-opacity-30">
-            <Image
-              src={thailand}
-              alt="india"
-              width={300}
-              height={500}
-              className=" rounded-md w-full border-brand h-full object-cover"
-            />
-
-            <PlaceName place="Thailand" price="$100" />
-          </div>
-        </div>
+                <PlaceName place={item.placeName} price={item.price} />
+              </div>
+            </Link>
+          );
+        })}
       </Slider>
     </div>
   );
