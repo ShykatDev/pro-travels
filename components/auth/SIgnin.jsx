@@ -1,9 +1,7 @@
 "use client";
 
-import { header2, sylhet } from "@/public";
+import { sylhet } from "@/public";
 import Image from "next/image";
-import Logo from "../common/Logo";
-import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa6";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
@@ -132,11 +130,6 @@ const SIgnin = () => {
             here
           </p>
         </div>
-        {/* <div className="mt-20 flex items-center gap-6 dark:text-neutral-400 text-neutral-600">
-          <FaFacebookF />
-          <FaInstagram />
-          <FaYoutube />
-        </div> */}
       </div>
       <div className="w-2/6">
         <Image

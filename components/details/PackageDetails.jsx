@@ -26,7 +26,7 @@ const PackageDetails = ({ params }) => {
         <Details pack={pack} />
 
         <div className="mt-6 flex gap-6">
-          <Reviews />
+          <Reviews pack={pack} />
           <Related />
         </div>
       </div>

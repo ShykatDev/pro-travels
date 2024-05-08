@@ -23,11 +23,24 @@ const UpcomingCard = ({ margin = "", pack }) => {
             priority={true}
             className="w-full"
           />
+          <div className="flex justify-between items-center">
+            {pack.isUpcomming && (
+              <div className="absolute border dark:border-neutral-500 top-4 left-4 backdrop-blur bg-black bg-opacity-70 font-medium text-brandText px-3 py-1 rounded-md">
+                <small>Upcomming</small>
+              </div>
+            )}
 
-          <div className="size-10 border dark:border-neutral-500 rounded-full dark:bg-black bg-opacity-50 absolute top-4 right-4 backdrop-blur flex justify-center items-center">
-            <button>
-              <FaRegHeart className="text-xl text-rose-600" />
-            </button>
+            {pack.isFeatured && (
+              <div className="absolute border dark:border-neutral-500 top-4 left-4 backdrop-blur bg-black bg-opacity-70 font-medium text-white px-3 py-1 rounded-md">
+                <small>Featured</small>
+              </div>
+            )}
+
+            <div className="size-10 border dark:border-neutral-500 rounded-full dark:bg-black bg-opacity-50 absolute top-4 right-4 backdrop-blur flex justify-center items-center">
+              <button>
+                <FaRegHeart className="text-xl text-rose-600" />
+              </button>
+            </div>
           </div>
         </div>
         <div className="w-full p-6">
@@ -75,7 +88,7 @@ const UpcomingCard = ({ margin = "", pack }) => {
             </div>
 
             <p className="text-xl text-brandText font-medium my-3">
-              $ {pack?.price}/person
+              ${pack?.price}/person
             </p>
           </div>
 

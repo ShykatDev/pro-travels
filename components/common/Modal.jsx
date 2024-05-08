@@ -24,7 +24,7 @@ const Modal = ({ children }) => {
     <dialog
       ref={dialoagRef}
       onClose={onHide}
-      className="w-screen min-h-[97vh] absolute top-0 left-0 z-40 bg-brand bg-opacity-15 backdrop-blur-3xl flex justify-center items-center rounded-2xl border"
+      className="w-screen min-h-[97vh] pb-10 absolute top-0 left-0 z-40 bg-brand bg-opacity-15 backdrop-blur-3xl flex justify-center items-center rounded-2xl border"
     >
       <Button onClick={onHide} className="absolute right-6 top-6">
         <MdOutlineClose />

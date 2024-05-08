@@ -7,15 +7,20 @@ import FilterOption from "./FilterOption";
 import { useQuery } from "@tanstack/react-query";
 import { handleFetchAllPackages } from "@/utils";
 import LoadingCard from "../loading/Card";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { FaCaretLeft, FaCaretRight } from "react-icons/fa6";
 
 const Packages = () => {
+  const [page, setPage] = useState(1);
+  const packagesRef = useRef(null);
+
   const { data, isLoading } = useQuery({
     queryKey: ["packages"],
     queryFn: handleFetchAllPackages,
     staleTime: 10000,
   });
 
+  // filtering logics
   const [filterKey, setFilterKey] = useState([]);
 
   let upcommingData = [];
@@ -61,8 +66,16 @@ const Packages = () => {
       .concat(lowTOhigh);
   }
 
+  // pagination logics
+  const selectedPage = (pageIndex) => {
+    if (pageIndex >= 1 && pageIndex <= data.length / 6) {
+      setPage(pageIndex);
+      packagesRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="py-10">
+    <div className="py-10" ref={packagesRef}>
       <SectionTitle
         title="Select your package"
         desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis officiis facilis voluptatem? Dolores, libero sunt?"
@@ -143,16 +156,51 @@ const Packages = () => {
               </div>
             )}
             <div className="w-full grid grid-cols-3 gap-4">
-              {filterKey.length === 0 &&
-                data.map((d) => {
-                  return <PackageCard key={d.id} pack={d} />;
-                })}
+              {filterKey.length === 0
+                ? data.slice(page * 6 - 6, page * 6).map((d) => {
+                    return <PackageCard key={d.id} pack={d} />;
+                  })
+                : filterData.map((d) => {
+                    return <PackageCard key={d.id} pack={d} />;
+                  })}
             </div>
-            <div className="w-full grid grid-cols-3 gap-4">
-              {filterData.map((d) => {
-                return <PackageCard key={d.id} pack={d} />;
-              })}
-            </div>
+
+            {/* Pagination */}
+            {filterKey.length === 0 && (
+              <div className="w-full flex justify-end mt-6">
+                <div className="flex items-center gap-2">
+                  <span
+                    onClick={() => selectedPage(page - 1)}
+                    className={`size-10 text-neutral-500 dark:text-neutral-300 duration-300 hover:text-black dark:hover:text-white border rounded-md flex justify-center items-center cursor-pointer ${
+                      page > 1 ? "" : "opacity-30"
+                    }`}
+                  >
+                    <FaCaretLeft />
+                  </span>
+                  {[...Array(data.length / 6)].map((_, i) => {
+                    return (
+                      <span
+                        key={i}
+                        onClick={() => selectedPage(i + 1)}
+                        className={`size-10 duration-300 hover:text-black dark:hover:text-white border rounded-md flex justify-center items-center cursor-pointer ${
+                          page === i + 1 && "text-brandText border-brandText"
+                        }`}
+                      >
+                        {i + 1}
+                      </span>
+                    );
+                  })}
+                  <span
+                    onClick={() => selectedPage(page + 1)}
+                    className={`size-10 text-neutral-500 dark:text-neutral-300 duration-300 hover:text-black dark:hover:text-white border rounded-md flex justify-center items-center cursor-pointer ${
+                      page < data.length / 6 ? "" : "opacity-30"
+                    }`}
+                  >
+                    <FaCaretRight />
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
         )}
       </div>

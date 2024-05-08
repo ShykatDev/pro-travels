@@ -10,7 +10,7 @@
     "ratings": 4.8,
     "isUpcomming": true,
     "isFav": false,
-    "isFeatured": true,
+    "isFeatured": false,
     "price": 500,
     "thumbnail": "/assets/village.jpg"
   },
@@ -25,7 +25,7 @@
     "ratings": 4.9,
     "isUpcomming": false,
     "isFav": false,
-    "isFeatured": false,
+    "isFeatured": true,
     "price": 300,
     "thumbnail": "/assets/place/machu-pichu.jpg"
   },
@@ -72,7 +72,7 @@
     "isFav": false,
     "isFeatured": false,
     "price": 800,
-    "thumbnail": "/assets/place/india.jpg"
+    "thumbnail": "/assets/place/kunnur.jpg"
   },
   {
     "id": "f3b6fd39-2249-405e-99eb-9d570fd71a3e",
@@ -260,6 +260,21 @@
     "description": "Discover the fairy-tale charm of Prague, with its medieval architecture, romantic cobblestone streets, and lively beer gardens.",
     "from": "Václav Havel Airport Prague",
     "to": "Prague",
+    "totalPerson": 1,
+    "totalDuration": "4 days",
+    "ratings": 4.8,
+    "isUpcomming": true,
+    "isFav": false,
+    "isFeatured": false,
+    "price": 1000,
+    "thumbnail": "/assets/place/tokyo.jpg"
+  },
+  {
+    "id": "36d70d8b-d9f9-478e-94ee-c005de0f84a9",
+    "placeName": "Prague 2",
+    "description": "Discover the fairy-tale charm of Prague, with its medieval architecture, romantic cobblestone streets, and lively beer gardens.",
+    "from": "Václav Havel Airport Prague",
+    "to": "Prague 2",
     "totalPerson": 1,
     "totalDuration": "4 days",
     "ratings": 4.8,

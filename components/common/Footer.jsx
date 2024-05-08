@@ -23,7 +23,7 @@ const Footer = () => {
 
             <div className="flex items-center gap-2">
               <FaPhone />
-              <p>+017 876 123 33</p>
+              <p>+8801787612333</p>
             </div>
 
             <div className="flex items-center gap-2">
