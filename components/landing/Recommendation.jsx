@@ -37,7 +37,7 @@ const Recommendation = () => {
         <Link href={`packages/${japan?.id}`}>
           <Image
             src={japan?.banner}
-            alt="japan"
+            alt={japan?.placeName}
             width={500}
             height={500}
             priority={true}
@@ -50,7 +50,7 @@ const Recommendation = () => {
         <Link href={`packages/${india?.id}`}>
           <Image
             src={india?.banner}
-            alt="japan"
+            alt={india?.placeName}
             width={500}
             height={500}
             priority={true}
@@ -64,7 +64,7 @@ const Recommendation = () => {
           <Link href={`packages/${sylhet?.id}`}>
             <Image
               src={sylhet?.banner}
-              alt="japan"
+              alt={sylhet?.placeName}
               width={500}
               height={500}
               priority={true}
@@ -77,7 +77,7 @@ const Recommendation = () => {
           <Link href={`packages/${iceland?.id}`}>
             <Image
               src={iceland?.banner}
-              alt="japan"
+              alt={iceland?.placeName}
               width={500}
               height={500}
               priority={true}
@@ -91,7 +91,7 @@ const Recommendation = () => {
         <Link href={`packages/${thailand?.id}`}>
           <Image
             src={thailand?.banner}
-            alt="japan"
+            alt={thailand?.placeName}
             width={500}
             height={500}
             priority={true}

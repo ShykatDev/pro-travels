@@ -11,7 +11,7 @@ const SectionTitle = ({ title, desc }) => {
           alt="luggage"
           width={30}
           height={30}
-          className="-rotate-[20deg] -mt-2"
+          className="ml-2"
         />
       </div>
       <p className="text-neutral-500 text-center">{desc}</p>

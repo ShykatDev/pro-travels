@@ -6,7 +6,9 @@ const page = () => {
   return (
     <>
       <ProtectedRoute>
-        <Profile />
+        <div className="container">
+          <Profile />
+        </div>
       </ProtectedRoute>
     </>
   );

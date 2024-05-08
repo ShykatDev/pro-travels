@@ -13,7 +13,6 @@ const Header = () => {
   const [searchData, setSearchData] = useState({
     location: "",
     person: "",
-    date: "",
   });
 
   const handleChange = (e) => {
@@ -23,10 +22,6 @@ const Header = () => {
       ...searchData,
       [name]: value,
     });
-  };
-
-  const handleSubmit = () => {
-    console.log(searchData);
   };
 
   return (
@@ -106,15 +101,15 @@ const Header = () => {
               <Label className="text-neutral-600 dark:text-neutral-300">
                 Date
               </Label>
-              <DatePicker
-                name="date"
-                selected={searchData.date}
-                onChange={handleChange}
-              />
+              <DatePicker />
             </div>
 
-            <Button className="mt-2" onClick={handleSubmit}>
-              Find Package
+            <Button className="mt-2">
+              <Link
+                href={`searchpackages/${searchData.location}/${searchData.person}`}
+              >
+                Find Package
+              </Link>
             </Button>
           </div>
         </div>
