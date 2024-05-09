@@ -7,6 +7,7 @@ import {
 } from "react-icons/fa6";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const Details = ({ pack }) => {
   return (
@@ -74,7 +75,10 @@ const Details = ({ pack }) => {
           </div>
 
           <div className="flex gap-6">
-            <Button className="w-1/2">Book Now</Button>
+            <Button className="w-1/2">
+              <Link href={`/booking/${pack.id}`}>Book Now</Link>
+            </Button>
+
             <Button variant="outline" className="w-1/2">
               Save on wishlist
             </Button>

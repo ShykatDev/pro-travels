@@ -13,6 +13,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import toast from "react-hot-toast";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/context";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const initialValues = {
   email: "",
@@ -23,14 +24,13 @@ const SIgnin = () => {
   const router = useRouter();
   const [regData, setRegData] = useState(null);
   const { user, setUser } = useContext(AuthContext);
+  const [signInData, setSignInData] = useLocalStorage("signInData", {});
 
   useEffect(() => {
     if (window !== undefined) {
       setRegData(JSON.parse(localStorage.getItem("registerData")));
     }
   }, []);
-
-  console.log(regData);
 
   const {
     values,
@@ -52,7 +52,8 @@ const SIgnin = () => {
         );
 
         if (findUser !== undefined) {
-          setUser(findUser);
+          setUser({ ...findUser, booked: [], favs: [] });
+          setSignInData({ ...findUser, booked: [], favs: [] });
           resetForm();
           toast.success("Sign in Successfully");
           router.push("/profile");

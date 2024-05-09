@@ -69,7 +69,7 @@ const Contact = () => {
             <div className="flex py-6 gap-6 items-center dark:text-neutral-400 text-neutral-600">
               <div className="flex items-center gap-2">
                 <FaLocationDot />
-                <p>Bangladesh</p>
+                <p>Dhaka, Bangladesh</p>
               </div>
               <div className="flex items-center gap-2">
                 <FaPhone />

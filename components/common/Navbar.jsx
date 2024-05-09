@@ -9,11 +9,16 @@ import Search from "./Search";
 import { ThemeModeToggle } from "./ThemeModeToggler";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "@/context";
+import useAuth from "@/hooks/useAuth";
 
 const Navbar = () => {
   const [isScroll, setIsScroll] = useState(false);
   const { user, setUser } = useContext(AuthContext);
   const pathName = usePathname();
+
+  const auth = useAuth();
+
+  console.log(auth);
 
   const handleScroll = () => {
     const isScrolled = window.scrollY > 0;

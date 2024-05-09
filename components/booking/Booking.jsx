@@ -3,16 +3,62 @@
 import { handleFetchAllPackages } from "@/utils";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { FaClock, FaPersonWalkingLuggage, FaStar } from "react-icons/fa6";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
-import { DatePicker } from "../common/DatePicker";
-import Select from "react-select";
 import { Button } from "../ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import { Textarea } from "../ui/textarea";
+import { useContext, useState } from "react";
+import { AuthContext } from "@/context";
+import toast from "react-hot-toast";
 
 const Booking = () => {
   const { bookingID } = useParams();
+  const [bookingInfo, setBookingInfo] = useState({
+    id: bookingID,
+    name: "",
+    email: "",
+    num: "",
+    person: "",
+    duration: "",
+    message: "",
+  });
+
+  const router = useRouter();
+  const { user, setUser } = useContext(AuthContext);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setBookingInfo({
+      ...bookingInfo,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setTimeout(() => {
+      setUser({
+        ...user,
+        booked: [...user.booked, bookingInfo],
+      });
+
+      toast.success("Booking Successfull");
+      router.push("/");
+    }, 1000);
+  };
 
   const { data, isLoading } = useQuery({
     queryKey: ["booking", bookingID],
@@ -22,18 +68,10 @@ const Booking = () => {
 
   const bookingData = data?.find((item) => item.id === bookingID);
 
-  const personOptions = [
-    { value: 1, label: "1" },
-    { value: 2, label: "2" },
-    { value: 3, label: "3" },
-    { value: 4, label: "4" },
-    { value: 5, label: "5" },
-  ];
-
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <div className="flex min-h-screen gap-10">
+    <div className="flex gap-10 pt-10">
       <div className="w-1/2 h-full">
         <Image
           src={bookingData.thumbnail}
@@ -74,16 +112,17 @@ const Booking = () => {
           ${bookingData.price}/person
         </p>
       </div>
-      <div className="w-1/2 h-full p-6 border">
-        <div>
-          <h2 className="text-2xl">Book with your proper details:</h2>
 
-          <p className=" text-neutral-500 dark:text-neutral-400">
+      <div className="w-1/2 h-full p-6 border rounded-lg ">
+        <div>
+          <h2 className="text-xl">Book with your proper details:</h2>
+
+          <p className=" text-neutral-500 dark:text-neutral-400 text-sm">
             Select your favorite social network and share our icons with your
             contacts or friends. If you don’t have these social networks, 
           </p>
         </div>
-        <form className="mt-6">
+        <form className="mt-6" onSubmit={handleSubmit}>
           <div className="flex flex-col gap-2 mb-4">
             <Label
               htmlFor="name"
@@ -94,6 +133,8 @@ const Booking = () => {
             <Input
               type="text"
               name="name"
+              value={bookingInfo.name}
+              onChange={handleChange}
               placeholder="Enter Full Name"
               className="w-full"
             />
@@ -108,25 +149,113 @@ const Booking = () => {
             <Input
               type="email"
               name="email"
-              placeholder="Enter Full Name"
+              value={bookingInfo.email}
+              onChange={handleChange}
+              placeholder="Enter Email Address"
+              className="w-full"
+            />
+          </div>
+
+          <div className="flex gap-3">
+            <div className="w-1/2 flex flex-col gap-2 mb-4">
+              <Label
+                htmlFor="dd"
+                className="text-neutral-600 dark:text-neutral-300"
+              >
+                Select Person
+              </Label>
+              <Select
+                onValueChange={(val) => {
+                  setBookingInfo({
+                    ...bookingInfo,
+                    person: val,
+                  });
+                }}
+              >
+                <SelectTrigger className="">
+                  <SelectValue placeholder="Select persons" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Person</SelectLabel>
+                    <SelectItem value="2">2 person</SelectItem>
+                    <SelectItem value="5">5 person</SelectItem>
+                    <SelectItem value="10">10 person</SelectItem>
+                    <SelectItem value="default">
+                      As mentioned in package
+                    </SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="w-1/2 flex flex-col gap-2 mb-4">
+              <Label
+                htmlFor="duration"
+                className="text-neutral-600 dark:text-neutral-300"
+              >
+                Duraion
+              </Label>
+              <Select
+                onValueChange={(val) => {
+                  setBookingInfo({
+                    ...bookingInfo,
+                    duration: val,
+                  });
+                }}
+              >
+                <SelectTrigger className="">
+                  <SelectValue placeholder="Select duration" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectLabel>Duration</SelectLabel>
+                    <SelectItem value="2">2 days</SelectItem>
+                    <SelectItem value="3">3 days</SelectItem>
+                    <SelectItem value="5">5 days</SelectItem>
+                    <SelectItem value="7">7 days</SelectItem>
+                    <SelectItem value="default">
+                      As mentioned in package
+                    </SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 mb-4">
+            <Label
+              htmlFor="num"
+              className="text-neutral-600 dark:text-neutral-300"
+            >
+              Mobile Number
+            </Label>
+            <Input
+              type="number"
+              name="num"
+              value={bookingInfo.num}
+              onChange={handleChange}
+              placeholder="Enter Mobile Number"
               className="w-full"
             />
           </div>
           <div className="flex flex-col gap-2 mb-4">
             <Label
-              htmlFor="name"
+              htmlFor="info"
               className="text-neutral-600 dark:text-neutral-300"
             >
-              Select a date
+              Additional Information
             </Label>
-            <DatePicker className="w-full" />
+            <Textarea
+              placeholder="Enter message"
+              name="message"
+              value={bookingInfo.message}
+              onChange={handleChange}
+              className="w-full"
+            />
           </div>
-          {/* <div className="flex">
-            <Select options={personOptions} className="w-1/2 " />
-            <Select options={personOptions} className="w-1/2 " />
-          </div> */}
-
-          <Button className="w-full">Book now</Button>
+          <Button type="submit" className="w-full mt-3">
+            Book now
+          </Button>
         </form>
       </div>
     </div>
