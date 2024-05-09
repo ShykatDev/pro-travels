@@ -16,10 +16,6 @@ const Navbar = () => {
   const { user, setUser } = useContext(AuthContext);
   const pathName = usePathname();
 
-  const auth = useAuth();
-
-  console.log(auth);
-
   const handleScroll = () => {
     const isScrolled = window.scrollY > 0;
     setIsScroll(isScrolled);

@@ -13,7 +13,7 @@ const SearchCard = ({ place }) => {
         alt={place.placeName}
         width={50}
         height={50}
-        className="rounded-md"
+        className="rounded-md object-cover"
       />
 
       <div>

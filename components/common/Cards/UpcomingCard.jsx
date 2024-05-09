@@ -2,15 +2,23 @@ import { Button } from "@/components/ui/button";
 import { card } from "@/public";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import {
   FaStar,
   FaPlane,
   FaPersonWalkingLuggage,
   FaClock,
   FaRegHeart,
+  FaHeart,
 } from "react-icons/fa6";
 
 const UpcomingCard = ({ margin = "", pack }) => {
+  const [fav, setFav] = useState(false);
+
+  const handleFav = () => {
+    setFav(!fav);
+  };
+
   return (
     <div className={margin}>
       <div className="w-full overflow-hidden rounded-xl dark:bg-brand bg-neutral-400 bg-opacity-5 dark:bg-opacity-15 border dark:border-brand">
@@ -36,10 +44,15 @@ const UpcomingCard = ({ margin = "", pack }) => {
               </div>
             )}
 
-            <div className="size-10 border dark:border-neutral-500 rounded-full dark:bg-black bg-opacity-50 absolute top-4 right-4 backdrop-blur flex justify-center items-center">
-              <button>
+            <div
+              onClick={handleFav}
+              className="size-10 border dark:border-neutral-500 rounded-full dark:bg-black bg-opacity-50 dark:bg-opacity-50 absolute top-4 right-4 backdrop-blur flex justify-center items-center cursor-pointer"
+            >
+              {fav ? (
+                <FaHeart className="text-xl text-rose-600" />
+              ) : (
                 <FaRegHeart className="text-xl text-rose-600" />
-              </button>
+              )}
             </div>
           </div>
         </div>

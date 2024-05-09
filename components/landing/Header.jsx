@@ -43,8 +43,8 @@ const Header = () => {
             </p>
           </div>
           <div className="mt-10 flex gap-10 justify-between items-end">
-            <Image alt="headerleft" src={header2} className="" />
-            <Image alt="headerleft" src={header3} className="" />
+            <Image alt="headerRight1" src={header2} className="" />
+            <Image alt="headerRight2" src={header3} className="" />
 
             <div>
               <div className="size-32 dark:bg-brand bg-brandText bg-opacity-30 dark:bg-opacity-15 border border-brand p-5 rounded-lg">

@@ -4,6 +4,7 @@ import { Button } from "../ui/button";
 import { FaStar } from "react-icons/fa6";
 import Gradient from "../common/Gradient";
 import SectionTitle from "../common/SectionTitle";
+import Link from "next/link";
 
 const Features = () => {
   return (
@@ -36,7 +37,7 @@ const Features = () => {
               </p>
             </div>
             <Button className=" bg-black text-white dark:hover:text-black">
-              View plans
+              <Link href="/packages">View packages</Link>
             </Button>
           </div>
         </div>
