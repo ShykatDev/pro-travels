@@ -81,8 +81,8 @@ const Packages = () => {
         desc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis officiis facilis voluptatem? Dolores, libero sunt?"
       />
 
-      <div className="w-full flex justify-end gap-6 mt-10 relative">
-        <div className="w-1/5 bg-brandText rounded-lg bg-opacity-10 p-6 ">
+      <div className="w-full flex flex-col md:flex-row justify-end gap-6 mt-10 relative">
+        <div className="md:w-1/5 bg-brandText rounded-lg bg-opacity-10 p-6 ">
           <h2 className="flex items-center gap-2 underline">
             <FaFilter className="text-brandText" /> Filter your search
           </h2>
@@ -128,7 +128,7 @@ const Packages = () => {
         </div>
 
         {isLoading ? (
-          <div className="w-4/5 grid grid-cols-3 gap-4">
+          <div className="w-4/5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <LoadingCard />
             <LoadingCard />
             <LoadingCard />
@@ -137,9 +137,9 @@ const Packages = () => {
             <LoadingCard />
           </div>
         ) : (
-          <div className="w-4/5">
+          <div className="md:w-4/5">
             {filterKey.length > 0 && (
-              <div className="flex items-center gap-2 mb-6">
+              <div className="flex flex-wrap items-center gap-2 mb-6">
                 <p className="px-3 py-1.5 bg-brandText text-sm dark:bg-opacity-30 bg-opacity-10 rounded-md">
                   Filter Applied:
                 </p>
@@ -155,7 +155,7 @@ const Packages = () => {
                 })}
               </div>
             )}
-            <div className="w-full grid grid-cols-3 gap-4">
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {filterKey.length === 0
                 ? data.slice(page * 6 - 6, page * 6).map((d) => {
                     return <PackageCard key={d.id} pack={d} />;

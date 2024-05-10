@@ -23,7 +23,7 @@ const Search = () => {
         type="text"
         placeholder="Search Here"
         onChange={handleChange}
-        className="w-[400px] bg-transparent py-2 px-4 outline-none dark:text-neutral-400 text-neutral-600 dark:placeholder:text-neutral-400 placeholder:text-neutral-600 placeholder:font-normal"
+        className="min-w-[300px] max-w-[400px] bg-transparent py-2 px-4 outline-none dark:text-neutral-400 text-neutral-600 dark:placeholder:text-neutral-400 placeholder:text-neutral-600 placeholder:font-normal"
       />
       <button>
         <LuSearch className="text-neutral-500 dark:text-neutral-400" />
@@ -37,7 +37,13 @@ const Search = () => {
                 item.placeName.toLowerCase().includes(searchText.toLowerCase())
               )
               .map((place, i) => {
-                return <SearchCard key={i} place={place} />;
+                return (
+                  <SearchCard
+                    key={i}
+                    place={place}
+                    setSearchText={setSearchText}
+                  />
+                );
               })}
         </div>
       )}

@@ -11,7 +11,7 @@ const FAQs = () => {
     <div className="my-20">
       <SectionTitle title="FAQs" desc="Commonly asked questions" />
 
-      <div className="w-1/2 mx-auto mt-16">
+      <div className="md:w-1/2 mx-auto mt-16">
         <Accordion type="single" collapsible className="w-full ">
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-lg">

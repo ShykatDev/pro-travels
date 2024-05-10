@@ -4,8 +4,10 @@ import Image from "next/image";
 const SectionTitle = ({ title, desc }) => {
   return (
     <>
-      <div className="flex items-center justify-center gap-1">
-        <h2 className="text-2xl font-medium">{title}</h2>
+      <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-1">
+        <h2 className="text-xl md:text-2xl font-medium text-center md:text-start">
+          {title}
+        </h2>
         <Image
           src={luggage}
           alt="luggage"

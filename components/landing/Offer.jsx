@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Offer = () => {
   return (
-    <div className="w-full dark:bg-transparent border bg-white bg-opacity-5 min-h-80 rounded-xl my-20 flex justify-between items-center px-10">
+    <div className="w-full dark:bg-transparent border bg-white bg-opacity-5 min-h-80 rounded-xl my-20 flex flex-col md:flex-row justify-between items-center md:px-10 p-6">
       <div className="flex flex-col items-start">
         <p className="px-3 py-1 border border-rose-400 text-rose-400 rounded-lg">
           Save 25% on your first trip

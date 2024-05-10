@@ -28,6 +28,36 @@ const Upcoming = () => {
     prevArrow: (
       <SamplePrevArrow place="-top-14 right-14 lg:right-14 z-20 cursor-pointer" />
     ),
+    responsive: [
+      {
+        breakpoint: 1280,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <div className="relative">
@@ -42,14 +72,14 @@ const Upcoming = () => {
       />
 
       <div className="mt-16">
-        <div className="flex gap-3">
+        <div className="hidden md:flex gap-3">
           <Button variant="outline">Domestic</Button>
           <Button variant="outline">International</Button>
         </div>
 
         <div className="mt-6 slider-container">
           {isLoading ? (
-            <div className="w-full grid grid-cols-4 gap-2">
+            <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
               <LoadingCard />
               <LoadingCard />
               <LoadingCard />

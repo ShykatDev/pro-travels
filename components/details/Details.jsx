@@ -12,8 +12,8 @@ import Link from "next/link";
 const Details = ({ pack }) => {
   return (
     <>
-      <div className="flex justify-between items-center gap-10">
-        <div className="w-1/2 ">
+      <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-10">
+        <div className="w-full md:w-1/2">
           <Image
             src={pack?.thumbnail}
             alt={pack?.placeName}
@@ -22,7 +22,7 @@ const Details = ({ pack }) => {
             className="w-full h-full object-cover rounded-xl"
           />
         </div>
-        <div className="w-1/2">
+        <div className="md:w-1/2 mt-[740px] md:mt-0">
           <div className="size-10 border dark:border-neutral-500 rounded-full dark:bg-black dark:bg-opacity-50 bg-opacity-50 backdrop-blur flex justify-center items-center">
             <button>
               <FaRegHeart className="text-xl text-rose-600" />

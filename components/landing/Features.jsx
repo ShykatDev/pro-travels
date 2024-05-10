@@ -15,33 +15,33 @@ const Features = () => {
         desc="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi, sequi."
       />
 
-      <div className="px-20 mt-16 h-[60vh] flex justify-between items-end">
-        <div className="w-[60%] h-full flex items-end">
-          <div className="bg-brandText dark:bg-brand dark:bg-opacity-15 bg-opacity-15 w-[45%] h-3/4 border-l border-t border-b px-10 py-20 border-brandText dark:border-brand rounded-tl-xl rounded-bl-xl">
+      <div className="lg:px-20 mt-16 h-auto lg:h-[60vh] flex flex-col lg:flex-row gap-y-6 lg:justify-between lg:items-end">
+        <div className="lg:w-[60%] h-full flex items-end">
+          <div className="bg-brandText dark:bg-brand dark:bg-opacity-15 bg-opacity-15 w-[45%] h-3/4 border-l border-t border-b px-6 lg:px-10 py-8 lg:py-20 border-brandText dark:border-brand rounded-tl-xl rounded-bl-xl">
             <p className="text-3xl font-extralight mb-6">01</p>
-            <h2 className="text-2xl">Travel with everything</h2>
+            <h2 className="text-xl lg:text-2xl">Travel with everything</h2>
           </div>
-          <div className="bg-brandText dark:bg-brand flex flex-col justify-between items-start w-[55%] h-full px-10 py-20 rounded-tr-xl rounded-br-xl rounded-tl-xl relative overflow-hidden">
+          <div className="bg-brandText dark:bg-brand flex flex-col justify-between items-start w-[55%] h-full px-6 lg:px-10 py-8 lg:py-20 rounded-tr-xl rounded-br-xl rounded-tl-xl relative overflow-hidden">
             <div className="circle1 absolute -right-8 -top-12 bg-[#78bbd879] dark:bg-[#024561] size-40 rounded-full"></div>
             <div className="circle2 absolute right-32 top-16 bg-[#78bbd879] dark:bg-[#024561] size-10 rounded-full"></div>
             <div className="circle3 absolute right-16 top-28 bg-[#78bbd879] dark:bg-[#024561] size-24 rounded-full"></div>
 
             <div className="relative z-20">
               <p className="text-3xl font-extralight mb-6">02</p>
-              <h2 className="text-2xl">Everything is Included</h2>
+              <h2 className="text-xl lg:text-2xl">Everything is Included</h2>
 
-              <p className="mt-10 text-neutral-700 dark:text-neutral-400">
+              <p className="mt-3 hidden lg:block lg:mt-10 text-neutral-700 dark:text-neutral-400">
                 Select your favorite social network and share our icons with
                 your contacts or friends. If you don’t have these social
                 networks
               </p>
             </div>
-            <Button className=" bg-black text-white dark:hover:text-black">
+            <Button className=" bg-black text-white dark:hover:text-black relative z-20 mt-10">
               <Link href="/packages">View packages</Link>
             </Button>
           </div>
         </div>
-        <div className="w-[30%] h-full flex justify-between flex-col">
+        <div className="lg:w-[30%] h-full flex justify-between flex-col">
           <div>
             <div className="mb-6">
               <div className="flex gap-2 items-center">
@@ -81,7 +81,7 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <div className="w-full flex items-start gap-3 dark:bg-white bg-black dark:bg-opacity-5 bg-opacity-5 border border-neutral-600 rounded-full px-6 py-4">
+          <div className="w-full flex items-start gap-3 dark:bg-white bg-black dark:bg-opacity-5 bg-opacity-5 border border-neutral-600 rounded-full px-6 py-4 mt-6 lg:mt-0">
             <Image
               alt="google"
               src={google}
@@ -96,7 +96,7 @@ const Features = () => {
                   <FaStar className="text-yellow-500" />
                 </span>
               </p>
-              <p className="font-light text-neutral-500">
+              <p className="font-light text-neutral-500 line-clamp-1 lg:line-clamp-none">
                 People just love to travel with us.
               </p>
             </div>

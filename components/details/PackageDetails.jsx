@@ -25,7 +25,7 @@ const PackageDetails = ({ params }) => {
       <div className="w-full container relative">
         <Details pack={pack} />
 
-        <div className="mt-6 flex gap-6">
+        <div className="mt-6 flex flex-col md:flex-row gap-6">
           <Reviews pack={pack} />
           <Related />
         </div>

@@ -37,7 +37,7 @@ const Related = () => {
   const relatedData = data?.filter((item) => item.id !== id);
 
   return (
-    <div className="w-1/4 h-full">
+    <div className="md:w-1/4 h-full">
       <h2 className="text-xl">Related Packages</h2>
 
       <Slider {...settings}>

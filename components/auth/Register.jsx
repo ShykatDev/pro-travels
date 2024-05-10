@@ -51,7 +51,7 @@ const Register = () => {
 
   return (
     <div className="container pt-10 pb-20 flex justify-between min-h-[90vh]">
-      <div className="w-2/6">
+      <div className="hidden md:block w-2/6">
         <Image
           src={register}
           alt="login-banner"
@@ -61,7 +61,7 @@ const Register = () => {
           className="w-full h-full object-cover rounded-lg"
         />
       </div>
-      <div className="w-2/5 flex flex-col justify-center items-start">
+      <div className="w-full md:w-2/5 flex flex-col justify-center items-start">
         <div className="w-full">
           <h2 className="text-2xl">Register</h2>
           <p className="text-neutral-600 dark:text-neutral-400">

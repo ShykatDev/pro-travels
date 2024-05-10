@@ -8,7 +8,7 @@ import { handleFetchRecommended } from "@/utils";
 import { useQuery } from "@tanstack/react-query";
 
 const Recommendation = () => {
-  const { data: recommended } = useQuery({
+  const { data: recommended, isLoading } = useQuery({
     queryKey: ["recommendedData"],
     queryFn: handleFetchRecommended,
     staleTime: 10000,
@@ -19,9 +19,11 @@ const Recommendation = () => {
   const sylhet = recommended && recommended[3];
   const iceland = recommended && recommended[4];
 
+  if (isLoading) return <p>Loading...</p>;
+
   return (
-    <div className="grid grid-cols-3 grid-rows-2 gap-6">
-      <div className="h-[40vh] flex flex-col items-start justify-center">
+    <div className="grid md:grid-cols-3 md:grid-rows-2 gap-6">
+      <div className="md:h-[40vh] flex flex-col items-start justify-center">
         <h2 className="text-2xl">Recommendation</h2>
         <p className="text-neutral-400 mt-3 mb-6">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
