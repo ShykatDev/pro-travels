@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { FaPlane } from "react-icons/fa6";
 
-const BookedCard = ({ item }) => {
+const BookedCard = ({ item, onCancel }) => {
   const { data } = useQuery({
     queryKey: ["bookedData"],
     queryFn: handleFetchAllPackages,
@@ -16,13 +16,13 @@ const BookedCard = ({ item }) => {
   console.log(bookedItem);
 
   return (
-    <div className="flex justify-between gap-6 mb-3">
+    <div className="flex flex-col md:flex-row justify-between gap-6 mb-3">
       <Image
         src={bookedItem?.thumbnail}
         alt={bookedItem?.placeName}
         width={300}
         height={200}
-        className="rounded-lg"
+        className="w-full rounded-lg"
       />
 
       <div className="">
@@ -45,7 +45,10 @@ const BookedCard = ({ item }) => {
           <small>{bookedItem?.to}</small>
         </div>
 
-        <Button className="mt-6 bg-rose-500 bg-opacity-20 dark:text-white text-black border border-rose-600 hover:bg-rose-300 dark:hover:bg-rose-900">
+        <Button
+          onClick={() => onCancel(bookedItem.id)}
+          className="mt-6 bg-rose-500 bg-opacity-20 dark:text-white text-black border border-rose-600 hover:bg-rose-300 dark:hover:bg-rose-900"
+        >
           Cancel booking
         </Button>
       </div>

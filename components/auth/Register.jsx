@@ -45,6 +45,8 @@ const Register = () => {
         resetForm();
         toast.success("Register Successfully");
         router.push("/sign-in");
+
+        console.log(regData);
       }, 2000);
     },
   });

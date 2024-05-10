@@ -5,11 +5,16 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { LuSearch } from "react-icons/lu";
 import SearchCard from "./Cards/SearchCard";
+import useDebounce from "@/hooks/useDebounce";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+
 const Search = () => {
   const [searchText, setSearchText] = useState("");
   const handleChange = (e) => {
     setSearchText(e.target.value);
   };
+
+  const { debouncedText, isLoading: loading } = useDebounce(searchText);
 
   const { data, isLoading } = useQuery({
     queryKey: ["searchData"],
@@ -28,13 +33,20 @@ const Search = () => {
       <button>
         <LuSearch className="text-neutral-500 dark:text-neutral-400" />
       </button>
-      {searchText.length > 0 && (
+      {debouncedText.length > 0 && (
         <div className="absolute w-1/2 p-4 bg-white dark:bg-neutral-950 dark:bg-opacity-90 bg-opacity-90 backdrop-blur-md top-full rounded-lg grid grid-cols-4 gap-3">
-          {isLoading && <p>Loading...</p>}
-          {!isLoading &&
+          {loading && (
+            <p className="flex items-center gap-2">
+              <AiOutlineLoading3Quarters className="animate-spin" />
+              loading
+            </p>
+          )}
+          {!loading &&
             data
               .filter((item) =>
-                item.placeName.toLowerCase().includes(searchText.toLowerCase())
+                item.placeName
+                  .toLowerCase()
+                  .includes(debouncedText.toLowerCase())
               )
               .map((place, i) => {
                 return (

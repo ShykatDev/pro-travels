@@ -14,6 +14,7 @@ const SearchCard = ({ place, setSearchText }) => {
         alt={place.placeName}
         width={50}
         height={50}
+        priority={true}
         className="rounded-md object-cover"
       />
 

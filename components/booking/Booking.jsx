@@ -21,6 +21,7 @@ import { Textarea } from "../ui/textarea";
 import { useContext, useState } from "react";
 import { AuthContext } from "@/context";
 import toast from "react-hot-toast";
+import ConfirmModal from "./ConfirmModal";
 
 const Booking = () => {
   const { bookingID } = useParams();
@@ -33,6 +34,8 @@ const Booking = () => {
     duration: "",
     message: "",
   });
+
+  const [isBooked, setIsBooked] = useState(false);
 
   const router = useRouter();
   const { user, setUser } = useContext(AuthContext);
@@ -56,7 +59,7 @@ const Booking = () => {
       });
 
       toast.success("Booking Successfull");
-      router.push("/");
+      setIsBooked(true);
     }, 1000);
   };
 
@@ -71,8 +74,8 @@ const Booking = () => {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <div className="flex gap-10 pt-10">
-      <div className="w-1/2 h-full">
+    <div className="flex flex-col md:flex-row gap-10 pt-10">
+      <div className="md:w-1/2 h-full">
         <Image
           src={bookingData.thumbnail}
           alt={bookingData.placeName}
@@ -113,7 +116,7 @@ const Booking = () => {
         </p>
       </div>
 
-      <div className="w-1/2 h-full p-6 border rounded-lg ">
+      <div className="md:w-1/2 h-full p-6 border rounded-lg ">
         <div>
           <h2 className="text-xl">Book with your proper details:</h2>
 
@@ -258,6 +261,8 @@ const Booking = () => {
           </Button>
         </form>
       </div>
+
+      {isBooked && <ConfirmModal />}
     </div>
   );
 };

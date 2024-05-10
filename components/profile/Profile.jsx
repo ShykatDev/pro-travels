@@ -4,8 +4,6 @@ import { Button } from "../ui/button";
 import { useContext } from "react";
 import { AuthContext } from "@/context";
 import toast from "react-hot-toast";
-import Image from "next/image";
-import { FaCircleCheck } from "react-icons/fa6";
 import BookedCard from "../common/Cards/BookedCard";
 
 const Profile = () => {
@@ -20,7 +18,18 @@ const Profile = () => {
     }, 500);
   };
 
-  console.log(user?.booked);
+  const handleCanceled = (id) => {
+    const newBookedItem = user?.booked?.filter((item) => item.id !== id);
+
+    setTimeout(() => {
+      setUser({
+        ...user,
+        booked: newBookedItem,
+      });
+
+      toast.success("Cancel request received");
+    }, 1000);
+  };
 
   return (
     <div className="py-10">
@@ -33,8 +42,8 @@ const Profile = () => {
           Logout
         </Button>
       </div>
-      <div className="flex gap-6 items-start mt-10">
-        <div className="w-3/4 p-6 border rounded-lg">
+      <div className="flex flex-col md:flex-row gap-6 items-start mt-10">
+        <div className="w-full md:w-3/4 p-6 border rounded-lg">
           <h2 className="font-medium">Booked Package</h2>
 
           <div className="mt-3">
@@ -42,11 +51,17 @@ const Profile = () => {
               <p className="text-neutral-500 mt-3">No tour booked yet.</p>
             )}
             {user?.booked?.map((item) => {
-              return <BookedCard key={item.id} item={item} />;
+              return (
+                <BookedCard
+                  key={item.id}
+                  item={item}
+                  onCancel={handleCanceled}
+                />
+              );
             })}
           </div>
         </div>
-        <div className="w-1/4">
+        <div className="w-full md:w-1/4">
           <h2 className="font-medium">Completed Package</h2>
           <p className="text-neutral-500 mt-3">No tour completed yet.</p>
 
