@@ -23,6 +23,7 @@ const initialValues = {
 const SIgnin = () => {
   const router = useRouter();
   const [regData, setRegData] = useState(null);
+  const [isFound, setIsFound] = useState("");
   const { user, setUser } = useContext(AuthContext);
   const [signInData, setSignInData] = useLocalStorage("signInData", {});
 
@@ -57,6 +58,8 @@ const SIgnin = () => {
           resetForm();
           toast.success("Sign in Successfully");
           router.push("/profile");
+        } else {
+          setIsFound("User not found with this email!");
         }
       }, 2000);
     },
@@ -110,6 +113,12 @@ const SIgnin = () => {
                 <small className="text-rose-500">{errors.password}</small>
               )}
             </div>
+
+            {isFound.length !== 0 && (
+              <div className="mb-3">
+                <small className="text-rose-500">{isFound}</small>
+              </div>
+            )}
 
             <Button type="submit">
               {isSubmitting ? (
