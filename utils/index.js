@@ -1,6 +1,6 @@
 export const handleFetchAllPackages = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/packages");
+    const res = await fetch("https://pro-travels.vercel.app/api/packages");
     return res.json();
   } catch (e) {
     console.error(e);
@@ -9,7 +9,7 @@ export const handleFetchAllPackages = async () => {
 
 export const handleFetchUpcomming = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/upcomming");
+    const res = await fetch("https://pro-travels.vercel.app/api/upcomming");
     return res.json();
   } catch (e) {
     console.error(e);
@@ -18,7 +18,7 @@ export const handleFetchUpcomming = async () => {
 
 export const handleFetchRecommended = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/recommended");
+    const res = await fetch("https://pro-travels.vercel.app/api/recommended");
     return res.json();
   } catch (e) {
     console.error(e);
